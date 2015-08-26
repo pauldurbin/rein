@@ -19,5 +19,10 @@ module RC
 
       execute("ALTER TABLE #{table} ADD CONSTRAINT #{name} CHECK (#{conditions})")
     end
+
+    def drop_numericality_constraint(table, attribute)
+      name = "#{table}_#{attribute}"
+      execute("ALTER TABLE #{table} DROP CONSTRAINT #{name}")
+    end
   end
 end
